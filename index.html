@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Eswar Kashyap · Portfolio</title>
+  <meta name="description" content="Portfolio of Eswar Kashyap — UI/UX Designer & Frontend Developer. Case studies, projects, resume, and contact." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Eswar Kashyap · Portfolio" />
+  <meta property="og:description" content="UI/UX, Frontend and Data Visualization projects, case studies, resume & contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <style>
+    /* ===== CSS RESET (trimmed) ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}
+    ul[role='list'],ol[role='list']{list-style:none;margin:0;padding:0}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+
+    /* ===== THEME ===== */
+    :root{
+      --bg: #0b0e11;
+      --card: #12161b;
+      --text: #e9edf1;
+      --muted: #9aa6b2;
+      --brand: #6ae3ff;
+      --brand-2: #79f2c0;
+      --accent: #ffd166;
+      --border: #1f2833;
+      --ring: rgba(106, 227, 255, .35);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --maxw: 1100px;
+      color-scheme: dark;
+    }
+    :root.light{
+      --bg: #ffffff;
+      --card: #f7fafc;
+      --text: #0f1720;
+      --muted: #4b5563;
+      --brand: #0ea5e9;
+      --brand-2: #059669;
+      --accent: #d97706;
+      --border: #e5e7eb;
+      --ring: rgba(14,165,233,.25);
+      --shadow: 0 10px 24px rgba(2,6,23,.08);
+      color-scheme: light;
+    }
+
+    body{
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(106,227,255,.08), transparent 60%),
+                  radial-gradient(800px 400px at 10% -10%, rgba(121,242,192,.08), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji;
+      line-height: 1.6;
+      letter-spacing: .2px;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container{max-width:var(--maxw); margin:0 auto; padding: 0 20px;}
+    header{
+      position: sticky; top:0; z-index: 50;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: color-mix(in oklab, var(--bg) 70%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      height: 68px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .avatar{
+      width:36px;height:36px;border-radius:50%;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display:grid; place-items:center; color:#0b0e11; font-weight:800;
+      box-shadow: var(--shadow);
+    }
+    .nav a{opacity:.9}
+    .nav a:hover{opacity:1}
+    .nav ul{display:flex; gap:22px; align-items:center}
+    .btn,button{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius: 999px;
+      border:1px solid var(--border); background: linear-gradient(180deg, color-mix(in oklab, var(--card) 60%, transparent), var(--card));
+      color:var(--text); box-shadow: var(--shadow);
+    }
+    .btn:hover{transform: translateY(-1px);}
+    .ghost{background:transparent}
+
+    /* ===== HERO ===== */
+    .hero{padding: 72px 0 28px; display:grid; gap:28px}
+    .hero .headline{font-size: clamp(32px, 6vw, 56px); line-height:1.08; letter-spacing:-.5px;}
+    .hero p{font-size: clamp(16px, 2.4vw, 18px); color:var(--muted); max-width: 75ch}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .chip{padding:6px 12px; border-radius:999px; border:1px dashed var(--border); font-size:14px; color:var(--muted)}
+
+    /* ===== GRID ===== */
+    .grid{display:grid; gap:20px}
+    @media (min-width: 900px){
+      .grid.cols-3{grid-template-columns: repeat(3, 1fr);}
+      .grid.cols-2{grid-template-columns: repeat(2, 1fr);}
+    }
+
+    /* ===== CARD ===== */
+    .card{
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 65%, transparent), var(--card));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{font-size:20px; margin-bottom:8px}
+    .muted{color:var(--muted)}
+    .tag{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--border); color:var(--muted)}
+
+    /* ===== SECTION ===== */
+    section{padding: 28px 0}
+    section h2{font-size: clamp(22px, 3.2vw, 28px); margin-bottom: 14px}
+    .section-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom: 8px}
+    .section-desc{color:var(--muted); margin-bottom:12px}
+
+    /* ===== PROJECTS ===== */
+    .projects .filters{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
+    .project{
+      display:flex; flex-direction:column; gap:12px;
+      transition:.2s transform ease;
+    }
+    .project:hover{transform: translateY(-2px)}
+    .project .cover{
+      aspect-ratio: 16 / 10; border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, color-mix(in oklab, var(--brand) 45%, transparent), color-mix(in oklab, var(--brand-2) 45%, transparent));
+      display:grid; place-items:center; color:#001018; font-weight:800; letter-spacing:.5px; font-size:18px;
+      border:1px solid var(--border);
+    }
+    .project .meta{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .project .meta .left{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+    .project .links{display:flex; gap:10px; flex-wrap:wrap}
+
+    /* ===== TIMELINE ===== */
+    .timeline{display:grid; gap:16px}
+    .timeline-item{
+      display:grid; gap:6px; padding:14px; border-radius:var(--radius-sm);
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 55%, transparent), var(--card));
+    }
+    .timeline-item .role{font-weight:700}
+    .timeline-item .where{color:var(--muted)}
+    .timeline-item .when{font-size:12px; color:var(--muted)}
+
+    /* ===== SKILLS ===== */
+    .skills .skill-grid{display:grid; gap:12px}
+    @media (min-width: 900px){ .skills .skill-grid{ grid-template-columns: repeat(4, 1fr);} }
+    .skills .pill{padding:8px 12px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:14px}
+
+    /* ===== CONTACT ===== */
+    .contact .cta{display:flex; gap:10px; flex-wrap:wrap}
+    .contact .note{color:var(--muted)}
+
+    /* ===== FOOTER ===== */
+    footer{padding:28px 0; border-top:1px solid var(--border); color:var(--muted); font-size:14px}
+
+    /* ===== ACCESSIBILITY ===== */
+    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{position:static; width:auto; height:auto; padding:6px 10px; border-radius:8px; background:var(--accent); color:#111;}
+
+    /* ===== PRINT RESUME VIEW ===== */
+    @media print{
+      header, .projects, .contact, .chips, .themeToggle, .nav ul, .section-desc { display: none !important; }
+      .hero{padding:0}
+      section{padding:6px 0}
+      body{background:white; color:black}
+      .card, .timeline-item{box-shadow:none; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+    }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Eswar Kashyap",
+    "jobTitle": "UI/UX Designer & Frontend Developer",
+    "url": "https://example.com",
+    "sameAs": [],
+    "knowsAbout": ["UI/UX", "Frontend", "Power BI", "Data Visualization", "Design Systems", "React", "TypeScript"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">EK</div>
+        <span>Eswar Kashyap</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul role="list">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><button id="themeToggle" class="btn ghost themeToggle" aria-label="Toggle theme">🌓</button></li>
+          <li><a class="btn" href="cv/Eswar_Kashyap_Resume.pdf" download>Download Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="headline">Building clean, fast & user‑loving interfaces.</h1>
+      <p>
+        I'm <strong>Eswar Kashyap</strong> — a product‑minded UI/UX designer and frontend developer who turns complex ideas
+        into simple, elegant experiences. I specialize in dashboards, data visualization, and design systems.
+      </p>
+      <div class="chips" aria-label="Highlights">
+        <span class="chip">5+ yrs experience</span>
+        <span class="chip">UI/UX & Frontend</span>
+        <span class="chip">Design Systems</span>
+        <span class="chip">Power BI & Analytics</span>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>What I do</h3>
+          <p class="muted">Product design, interaction design, rapid prototyping, component libraries, and performant, accessible web apps.</p>
+        </div>
+        <div class="card">
+          <h3>How I work</h3>
+          <p class="muted">Start from outcomes, validate with users, ship iteratively, measure impact. Strong collaboration with PM/Eng/Data.</p>
+        </div>
+        <div class="card">
+          <h3>Looking for</h3>
+          <p class="muted">Impactful teams where I can own end‑to‑end experiences: research → design → code → iterate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+      <div class="section-head">
+        <h2>Featured Projects</h2>
+        <div class="filters" role="tablist" aria-label="Filter projects">
+          <button class="btn ghost tag" data-tag="all" aria-selected="true">All</button>
+          <button class="btn ghost tag" data-tag="uiux">UI/UX</button>
+          <button class="btn ghost tag" data-tag="frontend">Frontend</button>
+          <button class="btn ghost tag" data-tag="viz">Data Viz</button>
+        </div>
+      </div>
+      <p class="section-desc">Case studies with outcomes and links. Replace cover text with your thumbnails if you have them.</p>
+
+      <div class="grid cols-3" id="projectGrid" aria-live="polite">
+        <!-- Project cards are injected by JS below -->
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="role">Senior UI/UX & Frontend — <span class="where">Your Company</span></div>
+          <div class="when">2023 — Present · Remote</div>
+          <p class="muted">Led the redesign of analytics platform used by 15k+ users; built design system and shipped performance improvements (TTI ↓38%).</p>
+        </article>
+        <article class="timeline-item">
+          <div class="role">Product Designer — <span class="where">Another Co.</span></div>
+          <div class="when">2021 — 2023 · Bengaluru</div>
+          <p class="muted">Owned end‑to‑end design for 3 products; introduced research ops and continuous discovery rituals.</p>
+        </article>
+        <article class="timeline-item">
+          <div class="role">Frontend Engineer — <span class="where">Startup</span></div>
+          <div class="when">2019 — 2021 · Hyderabad</div>
+          <p class="muted">React + TypeScript + D3; worked closely with designers to ship delightful, accessible UI.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills">
+      <h2>Skills & Tools</h2>
+      <p class="section-desc">Comfortable across the stack from design to deployment. Strong on design systems, dashboards, and data viz.</p>
+      <div class="skill-grid">
+        <div class="card">
+          <h3>Design</h3>
+          <div class="chips">
+            <span class="pill">UI/UX</span><span class="pill">Interaction</span><span class="pill">Design Systems</span>
+            <span class="pill">Prototyping</span><span class="pill">Usability Testing</span><span class="pill">Figma</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Frontend</h3>
+          <div class="chips">
+            <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">TypeScript</span>
+            <span class="pill">React</span><span class="pill">Vite</span><span class="pill">D3</span><span class="pill">Accessibility</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Data & BI</h3>
+          <div class="chips">
+            <span class="pill">Power BI</span><span class="pill">SQL</span><span class="pill">Python</span><span class="pill">ETL</span>
+            <span class="pill">Analytics</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Ops</h3>
+          <div class="chips">
+            <span class="pill">Git</span><span class="pill">CI/CD</span><span class="pill">Vercel/Netlify</span><span class="pill">GitHub Pages</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <a class="btn" href="mailto:eswar@example.com">Email me</a>
+      </div>
+      <p class="note">Prefer a quick DM? <a href="https://wa.me/0000000000">WhatsApp</a> · <a href="https://www.linkedin.com/">LinkedIn</a></p>
+      <div class="cta">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn ghost" href="cv/Eswar_Kashyap_Resume.pdf" download>Save Resume</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Eswar Kashyap · Built with semantic HTML, modern CSS and a sprinkle of JS.
+    </div>
+  </footer>
+
+  <script>
+    // ===== Theme Toggle =====
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.classList.toggle('light', saved === 'light'); }
+    toggle.addEventListener('click', () => {
+      const isLight = root.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // ===== Year =====
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Projects Data (edit this) =====
+    const projects = [
+      {
+        title: "Sales Intelligence Dashboard",
+        blurb: "End‑to‑end redesign; +21% task success, +38% faster insights.",
+        tags: ["uiux","viz","frontend"],
+        links: [
+          { label: "Case Study", href: "#" },
+          { label: "Live Demo", href: "#" }
+        ]
+      },
+      {
+        title: "Design System — Prism",
+        blurb: "Token‑driven components, docs & Figma kit; shipped to 6 products.",
+        tags: ["uiux","frontend"],
+        links: [
+          { label: "Docs", href: "#" }
+        ]
+      },
+      {
+        title: "Power BI Storytelling",
+        blurb: "Narrative dashboards with smart defaults and KPI context.",
+        tags: ["viz","uiux"],
+        links: [
+          { label: "Slides", href: "#" }
+        ]
+      },
+      {
+        title: "Customer Portal (React + TS)",
+        blurb: "SSR + code‑split + a11y; CLS 0.03, TTI 1.2s.",
+        tags: ["frontend"],
+        links: [
+          { label: "Repo", href: "#" }, { label: "Live", href: "#" }
+        ]
+      },
+      {
+        title: "Experimentation Framework",
+        blurb: "Self‑serve A/B platform & visualizer; adoption by 8 teams.",
+        tags: ["frontend","viz"],
+        links: [
+          { label: "Playground", href: "#" }
+        ]
+      },
+      {
+        title: "Data Viz Gallery (D3)",
+        blurb: "Reusable charts & patterns for analytics products.",
+        tags: ["viz","frontend"],
+        links: [
+          { label: "Gallery", href: "#" }
+        ]
+      }
+    ];
+
+    const grid = document.getElementById('projectGrid');
+    const render = (filter='all') => {
+      grid.innerHTML = '';
+      projects.filter(p => filter==='all' || p.tags.includes(filter))
+        .forEach((p,i) => {
+          const el = document.createElement('article');
+          el.className = 'project card';
+          el.innerHTML = `
+            <div class="cover" aria-hidden="true">${p.title}</div>
+            <div>
+              <h3>${p.title}</h3>
+              <p class="muted">${p.blurb}</p>
+            </div>
+            <div class="meta">
+              <div class="left">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+              <div class="links">
+                ${p.links.map(l=>`<a class="btn ghost" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join('')}
+              </div>
+            </div>
+          `;
+          grid.appendChild(el);
+        });
+    };
+    render();
+
+    // Filters
+    document.querySelectorAll('.filters .tag').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filters .tag').forEach(b => b.setAttribute('aria-selected','false'));
+        btn.setAttribute('aria-selected','true');
+        render(btn.dataset.tag);
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}) }
+      });
+    });
+  </script>
+</body>
+</html>
