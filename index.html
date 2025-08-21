@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eswar Kashyap - Portfolio</title>
-  <link rel="stylesheet" href="styles.css"/>
   <style>
     :root {
       --bg:#f9fafb; --text:#1f2937; --muted:#4b5563;
@@ -49,69 +48,75 @@
       gap:32px;
       align-items:center;
     }
-    .hero h1 {
-      font-size: 40px;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-    .hero p {
-      margin-bottom: 20px;
-      color: var(--muted);
-    }
+    .hero h1 {font-size: 40px;margin-bottom: 12px;color: var(--text);}
+    .hero p {margin-bottom: 20px;color: var(--muted);}
 
     /* Skill tags */
-    .skills-tags {
-      margin-bottom: 20px;
-    }
+    .skills-tags {margin-bottom: 20px;}
     .skills-tags span {
-      display:inline-block;
-      background:var(--card);
-      border:1px solid var(--line);
-      color:var(--text);
-      padding:6px 14px;
-      margin:4px 6px 0 0;
-      border-radius:20px;
-      font-size:14px;
-      font-weight:500;
+      display:inline-block;background:var(--card);border:1px solid var(--line);
+      color:var(--text);padding:6px 14px;margin:4px 6px 0 0;
+      border-radius:20px;font-size:14px;font-weight:500;
     }
     body.dark .skills-tags span {
-      background:#1e293b;
-      border:1px solid #334155;
-      color:#f3f4f6;
+      background:#1e293b;border:1px solid #334155;color:#f3f4f6;
     }
 
     /* Contact button */
     .btn-main {
-      background: var(--brand);
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      text-decoration:none;
+      background: var(--brand);color: #fff;
+      padding: 10px 18px;border-radius: 8px;
+      font-weight: 600;display: inline-block;text-decoration:none;
     }
 
     /* Profile card */
     .hero-card {
-      background:var(--card);
-      padding:20px;
-      border-radius:12px;
-      text-align:center;
+      background:var(--card);padding:20px;border-radius:12px;text-align:center;
       box-shadow:0 4px 10px rgba(0,0,0,0.05);
     }
     .hero-card img {
       width:120px;height:120px;border-radius:50%;
       object-fit:cover;border:4px solid var(--brand);margin-bottom:12px;
     }
-    body.dark .hero-card img {
-      border:4px solid #fff;
-    }
+    body.dark .hero-card img {border:4px solid #fff;}
     .hero-card h3 {margin:0;font-size:20px;}
     .hero-card p {margin:4px 0 0;font-size:14px;color:var(--muted);}
 
     /* SECTIONS */
     section{padding:60px 24px;max-width:1100px;margin:auto;}
     h2{font-size:28px;margin-bottom:20px}
+
+    /* EXPERIENCE TIMELINE */
+    .timeline {
+      position:relative;margin-left:20px;
+    }
+    .timeline::before {
+      content:"";position:absolute;left:0;top:0;width:2px;height:100%;
+      background:var(--line);
+    }
+    .timeline-item {
+      margin-bottom:30px;padding-left:24px;position:relative;
+    }
+    .timeline-item::before {
+      content:"";position:absolute;left:-6px;top:6px;
+      width:12px;height:12px;background:var(--brand);border-radius:50%;
+    }
+    .timeline-item h3 {margin:0;font-size:18px;}
+    .timeline-item p {margin:4px 0;color:var(--muted);}
+
+    /* PROJECT CARDS */
+    .projects-grid {
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+    .project-card {
+      background:var(--card);padding:20px;border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
+      transition:transform .2s;
+    }
+    .project-card:hover {transform:translateY(-4px);}
+    .project-card h3 {margin-bottom:10px;}
+    .project-card p {color:var(--muted);}
 
     footer{padding:20px;text-align:center;border-top:1px solid var(--line);margin-top:40px;color:var(--muted)}
   </style>
@@ -139,20 +144,11 @@
       <div>
         <h1>Hi, I'm Eswar Kashyap</h1>
         <p>Business Intelligence Developer skilled in Power BI, SQL, and data visualization. I turn data into insights and dashboards that drive decisions.</p>
-        
-        <!-- Skill tags -->
         <div class="skills-tags">
-          <span>Power BI</span>
-          <span>SQL</span>
-          <span>Data Visualization</span>
-          <span>ETL</span>
+          <span>Power BI</span><span>SQL</span><span>Data Visualization</span><span>ETL</span>
         </div>
-
-        <!-- Contact button -->
         <a href="#contact" class="btn-main">Contact Me</a>
       </div>
-
-      <!-- Profile card -->
       <div class="hero-card">
         <img src="profile.jpeg" alt="Profile photo">
         <h3>Eswar Kashyap</h3>
@@ -170,19 +166,35 @@
   <!-- EXPERIENCE -->
   <section id="experience">
     <h2>Experience</h2>
-    <ul>
-      <li><strong>BI Developer</strong> – Built interactive dashboards and automated data pipelines.</li>
-      <li><strong>SQL Developer</strong> – Wrote optimized SQL queries, procedures, and data models.</li>
-    </ul>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>BI Developer</h3>
+        <p>Designed and built interactive Power BI dashboards for business stakeholders, enabling data-driven decision making.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>SQL Developer</h3>
+        <p>Developed optimized SQL queries, stored procedures, and automated ETL pipelines to improve reporting efficiency.</p>
+      </div>
+    </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
-    <ul>
-      <li>📊 Sales Performance Dashboard – Power BI project showing regional sales insights.</li>
-      <li>📈 Data Warehouse Automation – Automated ETL pipelines for faster reporting.</li>
-    </ul>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>📊 Sales Performance Dashboard</h3>
+        <p>Power BI project providing insights into regional sales, revenue, and KPIs.</p>
+      </div>
+      <div class="project-card">
+        <h3>📈 Data Warehouse Automation</h3>
+        <p>Automated ETL pipelines using SQL and SSIS to reduce reporting time by 40%.</p>
+      </div>
+      <div class="project-card">
+        <h3>📌 Customer Insights</h3>
+        <p>Built data models to analyze customer behavior and retention trends.</p>
+      </div>
+    </div>
   </section>
 
   <!-- SKILLS -->
