@@ -7,46 +7,53 @@
 
   <!-- SEO -->
   <meta name="description" content="Portfolio of Eswar Kashyap – BI Developer specializing in Power BI, SQL, and Data Visualization." />
-  <meta name="keywords" content="Eswar Kashyap, BI Developer, Power BI, SQL, Data Visualization, Resume" />
   <meta name="author" content="Eswar Kashyap" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Eswar Kashyap – BI Developer Portfolio" />
   <meta property="og:description" content="Explore my BI development projects, experience, and resume." />
   <meta property="og:image" content="profile.jpeg" />
-  <meta property="og:type" content="website" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg:#f9fafb; --text:#1f2937; --muted:#4b5563;
+      --card:#fff; --line:#e5e7eb;
+      --brand:#2563eb; --brand2:#22c55e;
+    }
+    body.dark {
+      --bg:#0f172a; --text:#f3f4f6; --muted:#cbd5e1;
+      --card:#1e293b; --line:#334155;
+      --brand:#60a5fa; --brand2:#34d399;
+    }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;line-height:1.6;background:#f9fafb;color:#1f2937}
-    a{color:#2563eb;text-decoration:none}
-    header{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05);position:sticky;top:0;z-index:50}
-    header .container{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
-    header img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #2563eb}
-    nav a{margin-left:16px;font-weight:600;color:#1f2937}
-    nav a:hover{color:#2563eb}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    header{background:var(--card);box-shadow:0 2px 6px rgba(0,0,0,.05);position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
+    header .container{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px}
+    header img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--brand)}
+    nav a{margin-left:16px;font-weight:600;color:var(--text)}
+    nav a:hover{color:var(--brand)}
+    .toggle-btn{margin-left:16px;cursor:pointer;padding:6px 10px;border-radius:6px;background:var(--line);color:var(--text);font-size:14px;border:none}
 
-    .hero{padding:60px 24px;background:linear-gradient(to right,#eff6ff,#ffffff)}
+    .hero{padding:60px 24px;background:linear-gradient(to right,var(--brand),var(--brand2));color:#fff}
     .hero .wrap{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
-    .hero h1{font-size:40px;margin-bottom:12px;color:#111827}
-    .hero p{color:#4b5563;margin-bottom:20px}
-    .hero img{width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid #2563eb}
+    .hero h1{font-size:40px;margin-bottom:12px}
+    .hero p{margin-bottom:20px}
+    .hero img{width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid #fff}
 
     section{max-width:1100px;margin:auto;padding:50px 24px}
-    section h2{font-size:28px;color:#111827;margin-bottom:20px;border-left:4px solid #2563eb;padding-left:12px}
-
-    .card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.05);margin-bottom:20px}
-    .card h3{margin-bottom:8px;color:#111827}
-    .card p,.card li{color:#4b5563}
-
+    section h2{font-size:28px;margin-bottom:20px;border-left:4px solid var(--brand);padding-left:12px}
+    .card{background:var(--card);padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.05);margin-bottom:20px;border:1px solid var(--line)}
+    .card h3{margin-bottom:8px}
+    .card p,.card li{color:var(--muted)}
     ul{padding-left:20px}
 
-    iframe{width:100%;height:600px;border:1px solid #e5e7eb;border-radius:8px;margin:20px 0}
+    iframe{width:100%;height:600px;border:1px solid var(--line);border-radius:8px;margin:20px 0}
 
-    footer{text-align:center;padding:20px;background:#f3f4f6;color:#6b7280;margin-top:40px}
+    footer{text-align:center;padding:20px;background:var(--card);color:var(--muted);margin-top:40px;border-top:1px solid var(--line)}
   </style>
 </head>
 <body>
@@ -63,8 +70,10 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
+      <button class="toggle-btn" onclick="toggleDark()">🌙</button>
     </nav>
   </div>
 </header>
@@ -73,8 +82,8 @@
   <div class="wrap">
     <div>
       <h1>Hi, I'm Eswar Kashyap</h1>
-      <p>BI Developer skilled in Power BI, SQL, and Data Visualization. I transform data into dashboards and insights that help organizations make better decisions.</p>
-      <a href="#resume" style="background:#2563eb;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;">View Resume</a>
+      <p>Business Intelligence Developer skilled in Power BI, SQL, and data visualization. I transform raw data into insights and dashboards that help organizations make better decisions.</p>
+      <a href="#resume" style="background:#fff;color:#000;padding:10px 18px;border-radius:8px;font-weight:600;">View Resume</a>
     </div>
     <div style="text-align:center">
       <img src="profile.jpeg" alt="Profile photo">
@@ -115,7 +124,7 @@
 
 <section id="skills">
   <h2>Skills</h2>
-  <p>Power BI · SQL · AWS · Excel · Data Analysis · Data Visualization</p>
+  <div class="card"><p>Power BI · SQL · AWS · Excel · Data Analysis · Data Visualization</p></div>
 </section>
 
 <section id="education">
@@ -131,25 +140,36 @@
 
 <section id="languages">
   <h2>Languages</h2>
-  <p>English (Full Professional), Hindi (Professional Working), Telugu (Native)</p>
+  <div class="card"><p>English (Full Professional), Hindi (Professional Working), Telugu (Native)</p></div>
 </section>
 
 <section id="resume">
   <h2>Resume</h2>
   <iframe src="cv/Batchu-Eswar-Kashyap-Resume.pdf"></iframe>
-  <p><a href="cv/Batchu-Eswar-Kashyap-Resume.pdf" download style="background:#2563eb;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;">Download Resume</a></p>
+  <p><a href="cv/Batchu-Eswar-Kashyap-Resume.pdf" download style="background:var(--brand);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;">Download Resume</a></p>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:kashyapbatchu99@gmail.com">kashyapbatchu99@gmail.com</a></p>
-  <p>Phone: <a href="tel:+916281307778">+91 6281307778</a></p>
-  <p>Location: Bangalore, India</p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/eswarkashyap">linkedin.com/in/eswarkashyap</a></p>
+  <div class="card">
+    <p><strong>Email:</strong> <a href="mailto:kashyapbatchu99@gmail.com">kashyapbatchu99@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+916281307778">+91 6281307778</a></p>
+    <p><strong>Location:</strong> Bangalore, India</p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/eswarkashyap" target="_blank">linkedin.com/in/eswarkashyap</a></p>
+  </div>
 </section>
 
 <footer>
-  © 2025 Eswar Kashyap. Built with HTML & CSS.
+  © 2025 Eswar Kashyap. Built with HTML, CSS.
 </footer>
+
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+  const btn=document.querySelector(".toggle-btn");
+  btn.textContent=document.body.classList.contains("dark")?"☀️":"🌙";
+}
+</script>
 </body>
 </html>
+
