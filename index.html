@@ -2,154 +2,203 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eswar Kashyap – BI Developer Portfolio</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Portfolio of Eswar Kashyap – BI Developer specializing in Power BI, SQL, and Data Visualization." />
-  <meta name="keywords" content="Eswar Kashyap, BI Developer, Power BI, SQL, Data Visualization, Resume" />
-  <meta name="author" content="Eswar Kashyap" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Eswar Kashyap – BI Developer Portfolio" />
-  <meta property="og:description" content="Explore my BI development projects, experience, and resume." />
-  <meta property="og:image" content="profile.jpeg" />
-  <meta property="og:type" content="website" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eswar Kashyap - Portfolio</title>
+  <link rel="stylesheet" href="styles.css"/>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;line-height:1.6;background:#f9fafb;color:#1f2937}
-    a{color:#2563eb;text-decoration:none}
-    header{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05);position:sticky;top:0;z-index:50}
-    header .container{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
-    header img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #2563eb}
-    nav a{margin-left:16px;font-weight:600;color:#1f2937}
-    nav a:hover{color:#2563eb}
+    :root {
+      --bg:#f9fafb; --text:#1f2937; --muted:#4b5563;
+      --card:#fff; --line:#e5e7eb;
+      --brand:#2563eb;
+    }
+    body.dark {
+      --bg:#0f172a; --text:#f3f4f6; --muted:#cbd5e1;
+      --card:#1e293b; --line:#334155;
+      --brand:#60a5fa;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial, sans-serif;}
+    body{background:var(--bg);color:var(--text);line-height:1.6}
 
-    .hero{padding:60px 24px;background:linear-gradient(to right,#eff6ff,#ffffff)}
-    .hero .wrap{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
-    .hero h1{font-size:40px;margin-bottom:12px;color:#111827}
-    .hero p{color:#4b5563;margin-bottom:20px}
-    .hero img{width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid #2563eb}
+    /* NAVBAR */
+    nav{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:16px 24px;position:sticky;top:0;background:var(--bg);
+      border-bottom:1px solid var(--line);z-index:1000;
+    }
+    nav .brand{display:flex;align-items:center;gap:8px;font-weight:bold;}
+    nav .brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+    nav ul{display:flex;list-style:none;gap:20px}
+    nav ul li a{text-decoration:none;color:var(--text);font-weight:500}
+    .toggle{cursor:pointer;padding:6px 10px;border:1px solid var(--line);border-radius:6px}
 
-    section{max-width:1100px;margin:auto;padding:50px 24px}
-    section h2{font-size:28px;color:#111827;margin-bottom:20px;border-left:4px solid #2563eb;padding-left:12px}
+    /* HERO SECTION */
+    .hero {
+      padding: 80px 24px;
+      width: 100%;
+      color: var(--text);
+      background: linear-gradient(135deg, #e0f2ff 0%, #f0fdf4 100%);
+    }
+    body.dark .hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+    .hero .wrap {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      align-items:center;
+    }
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .hero p {
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
 
-    .card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.05);margin-bottom:20px}
-    .card h3{margin-bottom:8px;color:#111827}
-    .card p,.card li{color:#4b5563}
+    /* Skill tags */
+    .skills-tags {
+      margin-bottom: 20px;
+    }
+    .skills-tags span {
+      display:inline-block;
+      background:var(--card);
+      border:1px solid var(--line);
+      color:var(--text);
+      padding:6px 14px;
+      margin:4px 6px 0 0;
+      border-radius:20px;
+      font-size:14px;
+      font-weight:500;
+    }
+    body.dark .skills-tags span {
+      background:#1e293b;
+      border:1px solid #334155;
+      color:#f3f4f6;
+    }
 
-    ul{padding-left:20px}
+    /* Contact button */
+    .btn-main {
+      background: var(--brand);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: inline-block;
+      text-decoration:none;
+    }
 
-    iframe{width:100%;height:600px;border:1px solid #e5e7eb;border-radius:8px;margin:20px 0}
+    /* Profile card */
+    .hero-card {
+      background:var(--card);
+      padding:20px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    }
+    .hero-card img {
+      width:120px;height:120px;border-radius:50%;
+      object-fit:cover;border:4px solid var(--brand);margin-bottom:12px;
+    }
+    body.dark .hero-card img {
+      border:4px solid #fff;
+    }
+    .hero-card h3 {margin:0;font-size:20px;}
+    .hero-card p {margin:4px 0 0;font-size:14px;color:var(--muted);}
 
-    footer{text-align:center;padding:20px;background:#f3f4f6;color:#6b7280;margin-top:40px}
+    /* SECTIONS */
+    section{padding:60px 24px;max-width:1100px;margin:auto;}
+    h2{font-size:28px;margin-bottom:20px}
+
+    footer{padding:20px;text-align:center;border-top:1px solid var(--line);margin-top:40px;color:var(--muted)}
   </style>
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <div style="display:flex;align-items:center;gap:12px">
-      <img src="profile.jpeg" alt="Eswar Kashyap photo">
-      <strong>Eswar Kashyap</strong>
+  <!-- NAV -->
+  <nav>
+    <div class="brand">
+      <img src="profile.jpeg" alt="Eswar Kashyap">
+      Eswar Kashyap
     </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <h1>Hi, I'm Eswar Kashyap</h1>
-      <p>BI Developer skilled in Power BI, SQL, and Data Visualization. I transform data into dashboards and insights that help organizations make better decisions.</p>
-      <a href="#resume" style="background:#2563eb;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;">View Resume</a>
-    </div>
-    <div style="text-align:center">
-      <img src="profile.jpeg" alt="Profile photo">
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <h2>About Me</h2>
-  <p>Seeking a competitive and challenging environment where I can serve your organization and establish an enjoyable career for myself. I specialize in Business Intelligence, Power BI dashboarding, and data analysis.</p>
-</section>
-
-<section id="experience">
-  <h2>Experience</h2>
-  <div class="card">
-    <h3>BI Developer – Hinduja Global Solutions</h3>
-    <p><em>Oct 2021 – Present | Bangalore</em></p>
     <ul>
-      <li>Analyzed business requirements and translated client logic into reporting solutions.</li>
-      <li>Performed data study, cleansing, and modeling for dashboards.</li>
-      <li>Designed and developed dashboards using Power BI.</li>
-      <li>Implemented Row Level Security (RLS).</li>
-      <li>Conducted report validation, variance analysis, and gap identification.</li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </div>
-</section>
+    <div class="toggle" onclick="document.body.classList.toggle('dark')">🌓</div>
+  </nav>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="card"><h3>Windstream Report</h3><p>Developed Power BI report with metrics such as AHT, ASA, ABN, SLA, NPS, CSAT, Quality, Absenteeism.</p></div>
-  <div class="card"><h3>TLDC Report</h3><p>Dashboard for training & learning, including compliance, tracker, feedback, IDP coverage, completion.</p></div>
-  <div class="card"><h3>HR PRM</h3><p>HR Analytics dashboard with metrics on headcount, attrition, fill rate, and performance reviews.</p></div>
-  <div class="card"><h3>Fiserv Dashboard</h3><p>Payroll visualization including headcount, attrition, tenure, rehires.</p></div>
-  <div class="card"><h3>Internal Monitoring</h3><p>Reports for monitoring data availability, metric availability, and server jobs.</p></div>
-  <div class="card"><h3>Da Vinci OAP</h3><p>Maintained & developed Power BI reports for HGS Operations Team analytics.</p></div>
-  <div class="card"><h3>Da Vinci People Analytics</h3><p>People-related metrics including active headcount, new hires, attrition.</p></div>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Hi, I'm Eswar Kashyap</h1>
+        <p>Business Intelligence Developer skilled in Power BI, SQL, and data visualization. I turn data into insights and dashboards that drive decisions.</p>
+        
+        <!-- Skill tags -->
+        <div class="skills-tags">
+          <span>Power BI</span>
+          <span>SQL</span>
+          <span>Data Visualization</span>
+          <span>ETL</span>
+        </div>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <p>Power BI · SQL · AWS · Excel · Data Analysis · Data Visualization</p>
-</section>
+        <!-- Contact button -->
+        <a href="#contact" class="btn-main">Contact Me</a>
+      </div>
 
-<section id="education">
-  <h2>Education</h2>
-  <div class="card"><h3>B.Tech, Amrita School of Engineering</h3><p>2017 – 2021 | Bangalore</p></div>
-  <div class="card"><h3>Intermediate (MPC), Narayana Junior College</h3><p>2015 – 2017 | Kurnool</p></div>
-</section>
+      <!-- Profile card -->
+      <div class="hero-card">
+        <img src="profile.jpeg" alt="Profile photo">
+        <h3>Eswar Kashyap</h3>
+        <p>BI Developer</p>
+      </div>
+    </div>
+  </section>
 
-<section id="achievements">
-  <h2>Achievements</h2>
-  <div class="card"><p>Recognized as Reliable by Primary Manager (Rewards & Recognition).</p></div>
-</section>
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a Business Intelligence Developer with strong experience in data analysis, reporting, and dashboard creation. Skilled in Power BI, SQL, and data visualization, I help businesses transform raw data into actionable insights.</p>
+  </section>
 
-<section id="languages">
-  <h2>Languages</h2>
-  <p>English (Full Professional), Hindi (Professional Working), Telugu (Native)</p>
-</section>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>BI Developer</strong> – Built interactive dashboards and automated data pipelines.</li>
+      <li><strong>SQL Developer</strong> – Wrote optimized SQL queries, procedures, and data models.</li>
+    </ul>
+  </section>
 
-<section id="resume">
-  <h2>Resume</h2>
-  <iframe src="cv/Batchu-Eswar-Kashyap-Resume.pdf"></iframe>
-  <p><a href="cv/Batchu-Eswar-Kashyap-Resume.pdf" download style="background:#2563eb;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;">Download Resume</a></p>
-</section>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>📊 Sales Performance Dashboard – Power BI project showing regional sales insights.</li>
+      <li>📈 Data Warehouse Automation – Automated ETL pipelines for faster reporting.</li>
+    </ul>
+  </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:kashyapbatchu99@gmail.com">kashyapbatchu99@gmail.com</a></p>
-  <p>Phone: <a href="tel:+916281307778">+91 6281307778</a></p>
-  <p>Location: Bangalore, India</p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/eswarkashyap">linkedin.com/in/eswarkashyap</a></p>
-</section>
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <p>Power BI, SQL, DAX, Excel, Data Modeling, ETL, Data Visualization</p>
+  </section>
 
-<footer>
-  © 2025 Eswar Kashyap. Built with HTML & CSS.
-</footer>
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 Email: your-email@example.com</p>
+    <p>📱 Phone: +91-XXXXXXXXXX</p>
+    <p>🔗 <a href="https://www.linkedin.com/in/your-linkedin/" target="_blank">LinkedIn</a></p>
+  </section>
+
+  <footer>© 2025 Eswar Kashyap. All Rights Reserved.</footer>
 </body>
 </html>
