@@ -39,7 +39,7 @@
     /* HERO SECTION */
     .hero{
       padding:60px 24px;
-      background:linear-gradient(to right,#eff6ff,#ffffff); /* light sky blue minimal */
+      background:linear-gradient(to right,#eff6ff,#ffffff); /* sky blue minimal */
     }
     .hero .wrap{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
     .hero h1{font-size:40px;margin-bottom:12px;color:var(--text)}
@@ -54,6 +54,44 @@
     .card h3{margin-bottom:8px}
     .card p,.card li{color:var(--muted)}
     ul{padding-left:20px}
+
+    /* ACCORDION (Projects) */
+    .accordion-item {
+      border:1px solid var(--line);
+      border-radius:8px;
+      margin-bottom:10px;
+      overflow:hidden;
+      background:var(--card);
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+    }
+    .accordion-header {
+      width:100%;
+      text-align:left;
+      background:none;
+      border:none;
+      outline:none;
+      font-size:16px;
+      font-weight:600;
+      padding:14px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
+      color:var(--text);
+    }
+    .accordion-body {
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease, padding .3s ease;
+      padding:0 18px;
+    }
+    .accordion-body p {margin:12px 0;color:var(--muted)}
+    .accordion-item.active .accordion-body {
+      max-height:200px;
+      padding:12px 18px;
+    }
+    .accordion-item.active .icon {transform:rotate(180deg);}
+    .icon {transition:transform .3s ease;}
 
     /* FOOTER */
     footer{text-align:center;padding:20px;background:var(--card);color:var(--muted);margin-top:40px;border-top:1px solid var(--line)}
@@ -87,7 +125,7 @@
     <div>
       <h1>Hi, I'm Eswar Kashyap</h1>
       <p>Business Intelligence Developer skilled in Power BI, SQL, and data visualization. I transform raw data into insights and dashboards that help organizations make better decisions.</p>
-      <a href="#resume" class="btn-main">View Resume</a>
+      <a href="#contact" class="btn-main">Contact Me</a>
     </div>
     <div style="text-align:center">
       <img src="profile.jpeg" alt="Profile photo">
@@ -120,13 +158,71 @@
 <!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
-  <div class="card"><h3>Windstream Report</h3><p>Developed Power BI report with metrics such as AHT, ASA, ABN, SLA, NPS, CSAT, Quality, Absenteeism.</p></div>
-  <div class="card"><h3>TLDC Report</h3><p>Dashboard for training & learning, including compliance, tracker, feedback, IDP coverage, completion.</p></div>
-  <div class="card"><h3>HR PRM</h3><p>HR Analytics dashboard with metrics on headcount, attrition, fill rate, and performance reviews.</p></div>
-  <div class="card"><h3>Fiserv Dashboard</h3><p>Payroll visualization including headcount, attrition, tenure, rehires.</p></div>
-  <div class="card"><h3>Internal Monitoring</h3><p>Reports for monitoring data availability, metric availability, and server jobs.</p></div>
-  <div class="card"><h3>Da Vinci OAP</h3><p>Maintained & developed Power BI reports for HGS Operations Team analytics.</p></div>
-  <div class="card"><h3>Da Vinci People Analytics</h3><p>People-related metrics including active headcount, new hires, attrition.</p></div>
+
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>Windstream Report</span><span class="icon">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p>Developed Power BI report with metrics such as AHT, ASA, ABN, SLA, NPS, CSAT, Quality, Absenteeism. Automated data refresh pipelines and implemented row-level security for different teams.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>TLDC Report</span><span class="icon">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p>Dashboard for training & learning, including compliance, tracker, feedback, IDP coverage, and completion status. Integrated with Excel and SQL backends for dynamic updates.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>HR PRM</span><span class="icon">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p>HR Analytics dashboard with metrics on headcount, attrition, fill rate, and performance reviews. Helped HR teams reduce attrition forecasting errors by 20%.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>Fiserv Dashboard</span><span class="icon">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p>Payroll visualization including headcount, attrition, tenure, and rehires. Provided key insights to improve workforce planning strategies.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>Internal Monitoring</span><span class="icon">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p>Reports for monitoring data availability, metric availability, and server jobs. Enabled proactive monitoring and reduced downtime for BI reports.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>Da Vinci OAP</span><span class="icon">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p>Maintained & developed Power BI reports for HGS Operations Team analytics. Automated 90% of recurring reports, saving team 15+ hours per week.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>Da Vinci People Analytics</span><span class="icon">▼</span>
+      </button>
+      <div class="accordion-body">
+        <p>People-related metrics including active headcount, new hires, attrition. Enabled leadership to track workforce trends in real-time.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
@@ -172,7 +268,7 @@
 </section>
 
 <footer>
-  © 2025 Eswar Kashyap. Built with HTML, CSS.
+  © 2025 Eswar Kashyap. Built with HTML, CSS, and JavaScript.
 </footer>
 
 <script>
@@ -181,6 +277,14 @@ function toggleDark(){
   const btn=document.querySelector(".toggle-btn");
   btn.textContent=document.body.classList.contains("dark")?"☀️":"🌙";
 }
+
+// Accordion toggle
+document.querySelectorAll(".accordion-header").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const item = btn.parentElement;
+    item.classList.toggle("active");
+  });
+});
 </script>
 </body>
 </html>
