@@ -5,23 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eswar Kashyap – BI Developer Portfolio</title>
 
-  <!-- SEO -->
-  <meta name="description" content="Portfolio of Eswar Kashyap – BI Developer specializing in Power BI, SQL, and Data Visualization." />
-  <meta name="author" content="Eswar Kashyap" />
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:#f9fafb; --text:#1f2937; --muted:#4b5563;
+      --bg:#f5f6fa; --text:#1f2937; --muted:#4b5563;
       --card:#fff; --line:#e5e7eb;
-      --brand:#2563eb;
+      --brand:#2563eb; --accent:#2563eb;
     }
     body.dark {
       --bg:#0f172a; --text:#f3f4f6; --muted:#cbd5e1;
       --card:#1e293b; --line:#334155;
-      --brand:#60a5fa;
+      --brand:#60a5fa; --accent:#60a5fa;
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
@@ -29,72 +24,61 @@
     a{color:var(--brand);text-decoration:none}
 
     /* HEADER */
-    header{background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 2px 6px rgba(0,0,0,.05);position:sticky;top:0;z-index:50}
-    header .container{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px}
-    header img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--brand)}
+    header {
+      background:var(--card);border-bottom:1px solid var(--line);
+      position:sticky;top:0;z-index:50;
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+    }
+    header .container {
+      max-width:1100px;margin:auto;display:flex;align-items:center;
+      justify-content:space-between;padding:14px 24px;
+    }
+    header img{width:40px;height:40px;border-radius:50%;border:2px solid var(--brand)}
     nav a{margin-left:16px;font-weight:600;color:var(--text)}
     nav a:hover{color:var(--brand)}
-    .toggle-btn{margin-left:16px;cursor:pointer;padding:6px 10px;border-radius:6px;background:var(--line);color:var(--text);font-size:14px;border:none}
+    .btn-accent {
+      background:var(--accent);color:#fff;
+      padding:8px 16px;border-radius:8px;font-weight:600;
+      margin-left:16px;border:none;cursor:pointer;
+    }
 
     /* HERO SECTION */
-    .hero{
-      padding:60px 24px;
-      background:linear-gradient(to right,#eff6ff,#ffffff); /* sky blue minimal */
+    .hero {
+      max-width:1100px;margin:auto;padding:60px 24px;
+      display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;
     }
-    .hero .wrap{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
-    .hero h1{font-size:40px;margin-bottom:12px;color:var(--text)}
-    .hero p{margin-bottom:20px;color:var(--muted)}
-    .hero img{width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid var(--brand)}
-    .btn-main{background:var(--brand);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;display:inline-block}
+    .hero h1{font-size:42px;margin-bottom:16px}
+    .hero h1 span{color:var(--accent)}
+    .hero p{margin-bottom:24px;color:var(--muted)}
+    .hero img{width:280px;height:280px;border-radius:12px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+    .btn-main{background:var(--brand);color:#fff;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none}
+    .socials {margin-top:16px;}
+    .socials a {margin-right:12px;font-size:20px;color:var(--muted)}
+    .socials a:hover{color:var(--accent)}
 
     /* GENERAL SECTIONS */
     section{max-width:1100px;margin:auto;padding:50px 24px}
-    section h2{font-size:28px;margin-bottom:20px;border-left:4px solid var(--brand);padding-left:12px}
-    .card{background:var(--card);padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.05);margin-bottom:20px;border:1px solid var(--line)}
-    .card h3{margin-bottom:8px}
-    .card p,.card li{color:var(--muted)}
-    ul{padding-left:20px}
+    section h2{font-size:28px;margin-bottom:20px}
+    .card {
+      background:var(--card);padding:20px;border-radius:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+      margin-bottom:20px;border:1px solid var(--line)
+    }
 
-    /* ACCORDION (Projects) */
-    .accordion-item {
-      border:1px solid var(--line);
-      border-radius:8px;
-      margin-bottom:10px;
-      overflow:hidden;
-      background:var(--card);
-      box-shadow:0 2px 6px rgba(0,0,0,.05);
+    /* ACCORDION */
+    .accordion-item{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;background:var(--card)}
+    .accordion-header{
+      width:100%;background:none;border:none;padding:14px 18px;
+      display:flex;justify-content:space-between;align-items:center;
+      font-weight:600;font-size:16px;cursor:pointer;color:var(--text)
     }
-    .accordion-header {
-      width:100%;
-      text-align:left;
-      background:none;
-      border:none;
-      outline:none;
-      font-size:16px;
-      font-weight:600;
-      padding:14px 18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      cursor:pointer;
-      color:var(--text);
-    }
-    .accordion-body {
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .3s ease, padding .3s ease;
-      padding:0 18px;
-    }
-    .accordion-body p {margin:12px 0;color:var(--muted)}
-    .accordion-item.active .accordion-body {
-      max-height:200px;
-      padding:12px 18px;
-    }
-    .accordion-item.active .icon {transform:rotate(180deg);}
-    .icon {transition:transform .3s ease;}
+    .accordion-body{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding:0 18px}
+    .accordion-body p{margin:12px 0;color:var(--muted)}
+    .accordion-item.active .accordion-body{max-height:220px;padding:12px 18px}
+    .accordion-item.active .icon{transform:rotate(180deg)}
+    .icon{transition:transform .3s ease}
 
-    /* FOOTER */
-    footer{text-align:center;padding:20px;background:var(--card);color:var(--muted);margin-top:40px;border-top:1px solid var(--line)}
+    footer{text-align:center;padding:20px;color:var(--muted);margin-top:40px}
   </style>
 </head>
 <body>
@@ -102,7 +86,7 @@
 <header>
   <div class="container">
     <div style="display:flex;align-items:center;gap:12px">
-      <img src="profile.jpeg" alt="Eswar Kashyap photo">
+      <img src="profile.jpeg" alt="Profile photo">
       <strong>Eswar Kashyap</strong>
     </div>
     <nav>
@@ -110,33 +94,35 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#achievements">Achievements</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
-      <button class="toggle-btn" onclick="toggleDark()">🌙</button>
+      <button class="btn-accent" onclick="toggleDark()">🌙</button>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap">
-    <div>
-      <h1>Hi, I'm Eswar Kashyap</h1>
-      <p>Business Intelligence Developer skilled in Power BI, SQL, and data visualization. I transform raw data into insights and dashboards that help organizations make better decisions.</p>
-      <a href="#contact" class="btn-main">Contact Me</a>
+  <div>
+    <h1>Hi, I'm <span>Eswar Kashyap</span><br>Business Intelligence Developer</h1>
+    <p>I build dashboards, automate reporting, and turn data into actionable insights that help businesses make smarter decisions.</p>
+    <a href="#contact" class="btn-main">Contact Me</a>
+    <div class="socials">
+      <a href="mailto:kashyapbatchu99@gmail.com">📧</a>
+      <a href="https://www.linkedin.com/in/eswarkashyap" target="_blank">🔗</a>
     </div>
-    <div style="text-align:center">
-      <img src="profile.jpeg" alt="Profile photo">
-    </div>
+  </div>
+  <div>
+    <img src="profile.jpeg" alt="Profile picture">
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
-  <p>Seeking a competitive and challenging environment where I can serve your organization and establish an enjoyable career for myself. I specialize in Business Intelligence, Power BI dashboarding, and data analysis.</p>
+  <div class="card">
+    <p>Seeking a competitive and challenging environment where I can serve your organization and establish an enjoyable career for myself. I specialize in Business Intelligence, Power BI dashboarding, and data analysis.</p>
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
@@ -146,11 +132,9 @@
     <h3>BI Developer – Hinduja Global Solutions</h3>
     <p><em>Oct 2021 – Present | Bangalore</em></p>
     <ul>
-      <li>Analyzed business requirements and translated client logic into reporting solutions.</li>
-      <li>Performed data study, cleansing, and modeling for dashboards.</li>
       <li>Designed and developed dashboards using Power BI.</li>
-      <li>Implemented Row Level Security (RLS).</li>
-      <li>Conducted report validation, variance analysis, and gap identification.</li>
+      <li>Implemented RLS, validated data, and performed variance analysis.</li>
+      <li>Optimized SQL queries and ETL workflows to improve performance.</li>
     </ul>
   </div>
 </section>
@@ -158,69 +142,14 @@
 <!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
-
   <div class="accordion">
     <div class="accordion-item">
-      <button class="accordion-header">
-        <span>Windstream Report</span><span class="icon">▼</span>
-      </button>
-      <div class="accordion-body">
-        <p>Developed Power BI report with metrics such as AHT, ASA, ABN, SLA, NPS, CSAT, Quality, Absenteeism. Automated data refresh pipelines and implemented row-level security for different teams.</p>
-      </div>
+      <button class="accordion-header"><span>Windstream Report</span><span class="icon">▼</span></button>
+      <div class="accordion-body"><p>Developed Power BI report with AHT, ASA, ABN, SLA, NPS, CSAT metrics. Automated refresh pipelines & added RLS.</p></div>
     </div>
-
     <div class="accordion-item">
-      <button class="accordion-header">
-        <span>TLDC Report</span><span class="icon">▼</span>
-      </button>
-      <div class="accordion-body">
-        <p>Dashboard for training & learning, including compliance, tracker, feedback, IDP coverage, and completion status. Integrated with Excel and SQL backends for dynamic updates.</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>HR PRM</span><span class="icon">▼</span>
-      </button>
-      <div class="accordion-body">
-        <p>HR Analytics dashboard with metrics on headcount, attrition, fill rate, and performance reviews. Helped HR teams reduce attrition forecasting errors by 20%.</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>Fiserv Dashboard</span><span class="icon">▼</span>
-      </button>
-      <div class="accordion-body">
-        <p>Payroll visualization including headcount, attrition, tenure, and rehires. Provided key insights to improve workforce planning strategies.</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>Internal Monitoring</span><span class="icon">▼</span>
-      </button>
-      <div class="accordion-body">
-        <p>Reports for monitoring data availability, metric availability, and server jobs. Enabled proactive monitoring and reduced downtime for BI reports.</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>Da Vinci OAP</span><span class="icon">▼</span>
-      </button>
-      <div class="accordion-body">
-        <p>Maintained & developed Power BI reports for HGS Operations Team analytics. Automated 90% of recurring reports, saving team 15+ hours per week.</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>Da Vinci People Analytics</span><span class="icon">▼</span>
-      </button>
-      <div class="accordion-body">
-        <p>People-related metrics including active headcount, new hires, attrition. Enabled leadership to track workforce trends in real-time.</p>
-      </div>
+      <button class="accordion-header"><span>HR PRM</span><span class="icon">▼</span></button>
+      <div class="accordion-body"><p>HR Analytics dashboard with headcount, attrition, and fill-rate metrics, improving workforce planning.</p></div>
     </div>
   </div>
 </section>
@@ -228,26 +157,7 @@
 <!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
-  <div class="card"><p>Power BI · SQL · AWS · Excel · Data Analysis · Data Visualization</p></div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <h2>Education</h2>
-  <div class="card"><h3>B.Tech, Amrita School of Engineering</h3><p>2017 – 2021 | Bangalore</p></div>
-  <div class="card"><h3>Intermediate (MPC), Narayana Junior College</h3><p>2015 – 2017 | Kurnool</p></div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <h2>Achievements</h2>
-  <div class="card"><p>Recognized as Reliable by Primary Manager (Rewards & Recognition).</p></div>
-</section>
-
-<!-- LANGUAGES -->
-<section id="languages">
-  <h2>Languages</h2>
-  <div class="card"><p>English (Full Professional), Hindi (Professional Working), Telugu (Native)</p></div>
+  <div class="card"><p>Power BI · SQL · DAX · Excel · ETL · Data Visualization</p></div>
 </section>
 
 <!-- RESUME -->
@@ -274,17 +184,17 @@
 <script>
 function toggleDark(){
   document.body.classList.toggle("dark");
-  const btn=document.querySelector(".toggle-btn");
+  const btn=document.querySelector(".btn-accent");
   btn.textContent=document.body.classList.contains("dark")?"☀️":"🌙";
 }
 
 // Accordion toggle
 document.querySelectorAll(".accordion-header").forEach(btn=>{
   btn.addEventListener("click", ()=>{
-    const item = btn.parentElement;
-    item.classList.toggle("active");
+    btn.parentElement.classList.toggle("active");
   });
 });
 </script>
 </body>
 </html>
+
